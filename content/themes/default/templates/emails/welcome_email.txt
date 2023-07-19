@@ -1,0 +1,14 @@
+{__("Hi")} {$first_name},
+
+{__("Welcome to")} {__($system['system_title'])}!
+
+Para acessar a ferramenta, clique no link a seguir:
+https://uniebco.com.br
+
+Seus dados de login inicial são:
+Login: {$email}
+Senha: mudar@123
+
+Não se esqueça de alterar a senha no primeiro acesso.
+
+{__($system['system_title'])} {__("Team")}
