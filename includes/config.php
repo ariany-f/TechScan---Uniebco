@@ -8,3 +8,4 @@
     define("DEBUGGING", true);
     define("DEFAULT_LOCALE", 'en_us');
     define("LICENCE_KEY", '');
+    define('DEFAULT_PASS', 'uni@ebco123');

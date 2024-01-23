@@ -117,6 +117,7 @@ try {
   // publisher
   /* valid inputs */
   $inputs['is_anonymous'] = '0';
+  $inputs['post_communicates'] = '0';
   if ($_POST['handle'] == 'user') {
     if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
       _error(400);
@@ -162,6 +163,14 @@ try {
     /* if is_anonymous set and enabled */
     if ($system['anonymous_mode'] && $_POST['handle'] == 'me' && $_POST['is_anonymous'] == "true") {
       $inputs['is_anonymous'] = '1';
+      /* set album empty */
+      $_POST['album'] = "";
+      /* set privacy to public */
+      $inputs['privacy'] = 'public';
+    }
+
+    if ($_POST['post_communicates'] == "true") {
+      $inputs['post_communicates'] = '1';
       /* set album empty */
       $_POST['album'] = "";
       /* set privacy to public */

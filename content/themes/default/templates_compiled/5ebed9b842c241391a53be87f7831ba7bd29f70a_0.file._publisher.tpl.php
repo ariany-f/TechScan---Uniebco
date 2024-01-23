@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-17 21:05:54
+/* Smarty version 4.2.0, created on 2023-07-28 13:43:49
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_publisher.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64b5ad323503a3_74293764',
+  'unifunc' => 'content_64c3c615ca37f2_20143071',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5ebed9b842c241391a53be87f7831ba7bd29f70a' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_publisher.tpl',
-      1 => 1689627687,
+      1 => 1690551817,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 22,
   ),
 ),false)) {
-function content_64b5ad323503a3_74293764 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c3c615ca37f2_20143071 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="publisher-overlay"></div>
 <div class="x-form publisher" data-handle="<?php echo $_smarty_tpl->tpl_vars['_handle']->value;?>
 " <?php if ($_smarty_tpl->tpl_vars['_id']->value) {?>data-id="<?php echo $_smarty_tpl->tpl_vars['_id']->value;?>

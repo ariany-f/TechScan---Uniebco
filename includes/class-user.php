@@ -84,6 +84,10 @@ class User
         if ($system['pages_enabled']) {
           $this->_data['can_create_pages'] = $this->check_module_permission($system['pages_permission']);
         }
+        /* check announcements permission */
+        if ($system['announcements_enabled']) {
+          $this->_data['can_create_announcements'] = $this->check_module_permission($system['announcements_permission']);
+        }
         /* check groups permission */
         if ($system['groups_enabled']) {
           $this->_data['can_create_groups'] = $this->check_module_permission($system['groups_permission']);
@@ -5203,6 +5207,12 @@ class User
       foreach ($args['custom_fields'] as $field_id => $value) {
         $db->query(sprintf("INSERT INTO custom_fields_values (value, field_id, node_id, node_type) VALUES (%s, %s, %s, %s)", secure($value), secure($field_id, 'int'), secure($post['post_id'], 'int'), secure($post['post_type'])));
       }
+    }    
+    
+    /** change type of post if it is communicate, it needs to be changed after the process because of the inserts for photos etc */
+    if($args['post_communicates'] == true)
+    {
+        $db->query(sprintf("UPDATE posts SET post_type = %s WHERE post_id = %s", secure('communicates'), secure($post['post_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
     }
 
     /* post mention notifications */
@@ -5384,7 +5394,7 @@ class User
     $get = !isset($args['get']) ? 'newsfeed' : $args['get'];
     $filter = !isset($args['filter']) ? 'all' : $args['filter'];
     $country = !isset($args['country']) ? 'all' : $args['country'];
-    if (!in_array($filter, array('all', '', 'link', 'media', 'live', 'photos', 'map', 'article', 'product', 'funding', 'offer', 'job', 'poll', 'video', 'audio', 'file'))) {
+    if (!in_array($filter, array('all', '', 'link', 'media', 'live', 'photos', 'map', 'article', 'product', 'funding', 'offer', 'job', 'poll', 'video', 'audio', 'file', 'communicates'))) {
       _error(400);
     }
     $last_post_id = !isset($args['last_post_id']) ? null : $args['last_post_id'];
@@ -5638,6 +5648,9 @@ class User
     }
     /* exclude processing posts */
     $where_query .= " AND (posts.processing != '1')";
+
+    
+    //print_r($filter);
     /* get posts */
     if ($last_post_id != null && $get != 'popular' && $get != 'saved' && $get != 'memories') { /* excluded as not ordered by post_id */
       $get_posts = $db->query(sprintf("SELECT * FROM (SELECT posts.post_id FROM posts " . $location_join . $where_query . ") posts WHERE posts.post_id > %s ORDER BY posts.post_id DESC", secure($last_post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
@@ -5767,6 +5780,30 @@ class User
           /* og-meta tags */
           $post['og_image'] = $system['system_uploads'] . '/' . $post['photos'][0]['source'];
         }
+        break;
+      case 'communicates':
+        /* get photos */
+        $get_photos = $db->query(sprintf("SELECT * FROM posts_photos WHERE post_id = %s ORDER BY photo_id ASC", secure($post['post_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
+        $post['photos_num'] = $get_photos->num_rows;
+        /* check if photos has been deleted */
+        if ($post['photos_num'] != 0) {
+          while ($post_photo = $get_photos->fetch_assoc()) {
+            $post['photos'][] = $post_photo;
+          }
+          if ($post['post_type'] == 'album') {
+            $post['album'] = $this->get_album($post['photos'][0]['album_id'], false);
+            if (!$post['album']) {
+              return;
+            }
+            /* og-meta tags */
+            $post['og_title'] = $post['album']['title'];
+            $post['og_image'] = $post['album']['cover'];
+          } else {
+            /* og-meta tags */
+            $post['og_image'] = $system['system_uploads'] . '/' . $post['photos'][0]['source'];
+          }
+        }
+       
         break;
 
       case 'article':
@@ -6337,6 +6374,8 @@ class User
         }
       }
     }
+    $get_photos = $db->query(sprintf("SELECT * FROM posts_photos WHERE post_id = %s ORDER BY photo_id DESC", secure($post['post_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
+    $post['photos_num'] = $get_photos->num_rows;
 
     /* check privacy */
     /* overwrite the pass_privacy_check */
@@ -6604,6 +6643,7 @@ class User
     $db->query(sprintf("DELETE FROM posts WHERE post_id = %s", secure($post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
     switch ($post['post_type']) {
       case 'photos':
+      case 'communicates':
       case 'album':
       case 'profile_cover':
       case 'profile_picture':
@@ -7335,6 +7375,70 @@ class User
       $db->query(sprintf("UPDATE posts SET boosted = '0', boosted_by = NULL WHERE post_id = %s", secure($post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
       /* update user */
       $db->query(sprintf("UPDATE users SET user_boosted_posts = IF(user_boosted_posts=0,0,user_boosted_posts-1) WHERE user_id = %s", secure($this->_data['user_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
+    }
+  }
+
+
+  /**
+   * communicates_post
+   * 
+   * @param integer $post_id
+   * @return void
+   */
+  public function communicates_post($post_id)
+  {
+    global $db;
+    /* (check|get) post */
+    $post = $this->_check_post($post_id);
+    if (!$post) {
+      _error(403);
+    }
+    /* check if viewer can edit post */
+    if (!$post['manage_post']) {
+      _error(403);
+    }
+    /* check if post is_anonymous */
+    if ($post['is_anonymous']) {
+      throw new Exception(__("You can not do this with anonymous post"));
+    }
+    if ($post['post_type'] != 'communicates') {
+      /* change to communicates post */
+      $db->query(sprintf("UPDATE posts SET post_type = 'communicates' WHERE post_id = %s", secure($post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
+    }
+  }
+
+
+  /**
+   * feed_post
+   * 
+   * @param integer $post_id
+   * @return void
+   */
+  public function feed_post($post_id)
+  {
+    global $db;
+    /* (check|get) post */
+    $post = $this->_check_post($post_id);
+    if (!$post) {
+      _error(403);
+    }
+    /* check if viewer can edit post */
+    if (!$post['manage_post']) {
+      _error(403);
+    }
+    /* check if post is_anonymous */
+    if ($post['is_anonymous']) {
+      throw new Exception(__("You can not do this with anonymous post"));
+    }
+    if ($post['post_type'] == 'communicates') {
+      if($post['photos_num'] > 0)
+      {
+        $db->query(sprintf("UPDATE posts SET post_type = 'photos' WHERE post_id = %s", secure($post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
+      }
+      else
+      {
+        $db->query(sprintf("UPDATE posts SET post_type = '' WHERE post_id = %s", secure($post_id, 'int'))) or _error("SQL_ERROR_THROWEN");
+      }
     }
   }
 
@@ -8794,6 +8898,7 @@ class User
           break;
 
         case 'photos':
+        case 'communicates':
           if ($post['in_group']) {
             $get_target_photos = $db->query(sprintf("SELECT posts_photos.photo_id, posts_photos.source, posts.user_id, posts.privacy FROM posts_photos INNER JOIN posts ON posts_photos.post_id = posts.post_id WHERE posts.in_group = '1' AND posts.group_id = %s", secure($post['group_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
           } elseif ($post['in_event']) {
@@ -10994,6 +11099,13 @@ class User
         _error(403);
         break;
     }
+
+    /** change type of post if it is communicate, it needs to be changed after the process because of the inserts for photos etc */
+    if($args['post_communicates'])
+    {
+        $db->query(sprintf("UPDATE posts SET post_type = %s WHERE post_id = %s", secure('communicates'), secure($post['post_id'], 'int'))) or _error("SQL_ERROR_THROWEN");
+    }
+
     /* insert article */
     $db->query(sprintf("INSERT INTO posts_articles (post_id, cover, title, text, category_id, tags) VALUES (%s, %s, %s, %s, %s, %s)", secure($post_id, 'int'), secure($cover), secure($title), secure($clean_text), secure($category_id, 'int'), secure($tags))) or _error("SQL_ERROR_THROWEN");
     /* points balance */
@@ -16277,7 +16389,7 @@ class User
       }
     }
     /* check password */
-    $default_pass = 'uni@ebco123';
+    $default_pass = DEFAULT_PASS;
     if($password != $default_pass)
     {
       if (!password_verify($password, $user['user_password'])) {
@@ -16374,6 +16486,8 @@ class User
     /* unset the cookies */
     unset($_COOKIE[$this->_cookie_user_id]);
     unset($_COOKIE[$this->_cookie_user_token]);
+    unset($_COOKIE['ci_session']);
+    //print_r($_SESSION);die;
     setcookie($this->_cookie_user_id, NULL, -1, '/');
     setcookie($this->_cookie_user_token, NULL, -1, '/');
   }

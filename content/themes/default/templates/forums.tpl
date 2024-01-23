@@ -147,7 +147,7 @@
         <!-- forums meta -->
 
       {elseif $view == "forum"}
-
+      
         <!-- breadcrumb -->
         <ol class="breadcrumb forum-breadcrumb">
           <li class="breadcrumb-item"><a href="{$system['system_url']}/comunidade/forums/"><i class="fa fa-home"></i> {__("Home")}</a></li>
@@ -179,6 +179,8 @@
           <div class="forum-category">
             <a href="{$system['system_url']}/comunidade/forums/{$forum['forum_id']}/{$forum['title_url']}">{__($forum['forum_name'])}</a>
           </div>
+          <br/>
+          <p>Crie outro fórum que tenha este fórum como seção para que as pessoas possam postar tópicos</p>
         {/if}
         <!-- forum-category -->
 

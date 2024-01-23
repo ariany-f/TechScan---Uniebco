@@ -15,6 +15,7 @@ api['posts/post'] = ajax_path + "posts/post.php";
 api['posts/scraper'] = ajax_path + "posts/scraper.php";
 api['posts/comment'] = ajax_path + "posts/comment.php";
 api['posts/reaction'] = ajax_path + "posts/reaction.php";
+api['posts/communicates_post'] = ajax_path + "posts/communicates_post.php";
 api['posts/edit'] = ajax_path + "posts/edit.php";
 api['posts/product'] = ajax_path + "posts/product.php";
 api['posts/story'] = ajax_path + "posts/story.php";
@@ -766,7 +767,11 @@ $(function () {
     var posts_stream = $('.js_posts_stream');
     /* get publisher */
     var publisher = _this.parents('.publisher');
-    console.log(publisher);
+    var communicates = false;
+
+    if($('.publisher').hasClass('communicates')){
+      communicates = true;
+    }
     /* get handle */
     var handle = publisher.data('handle');
     /* get (user|page|group|event) id */
@@ -825,7 +830,7 @@ $(function () {
     /* button loading */
     button_status(_this, "loading");
     posts_stream.data('loading', true);
-    $.post(api['posts/post'], { 'handle': handle, 'id': id, 'message': textarea.val(), 'link': JSON.stringify(link), 'photos': JSON.stringify(photos), 'album': album.val(), 'feeling_action': feeling.data('action'), 'feeling_value': feeling.val(), 'location': location.val(), 'colored_pattern': publisher.data('colored_pattern'), 'voice_notes': JSON.stringify(voice_notes), 'poll_options': JSON.stringify(poll_options), 'video': JSON.stringify(video), 'video_thumbnail': video_thumbnail, 'audio': JSON.stringify(audio), 'file': JSON.stringify(file), 'privacy': privacy, 'is_anonymous': is_anonymous }, function (response) {
+    $.post(api['posts/post'], { 'handle': handle, 'id': id, 'message': textarea.val(), 'link': JSON.stringify(link), 'photos': JSON.stringify(photos), 'album': album.val(), 'feeling_action': feeling.data('action'), 'feeling_value': feeling.val(), 'location': location.val(), 'colored_pattern': publisher.data('colored_pattern'), 'voice_notes': JSON.stringify(voice_notes), 'poll_options': JSON.stringify(poll_options), 'video': JSON.stringify(video), 'video_thumbnail': video_thumbnail, 'audio': JSON.stringify(audio), 'file': JSON.stringify(file), 'privacy': privacy, 'is_anonymous': is_anonymous, 'post_communicates': communicates}, function (response) {
       if (response.callback) {
         /* button reset */
         button_status(_this, "reset");
@@ -1673,6 +1678,40 @@ $(function () {
         eval(response.callback);
       } else {
         _this.removeClass('js_unboost-post').addClass('js_boost-post').find('span').text(__['Boost Post']);
+      }
+    }, 'json')
+      .fail(function () {
+        modal('#modal-message', { title: __['Error'], message: __['There is something that went wrong!'] });
+      });
+  });
+  /* change to communicate post */
+  $('body').on('click', '.js_communicate-post', function () {
+    var _this = $(this);
+    var post = _this.parents('.post');
+    var id = post.data('id');
+    $.post(api['posts/reaction'], { 'do': 'communicates_post', 'id': id }, function (response) {
+      /* check the response */
+      if (response.callback) {
+        eval(response.callback);
+      } else {
+        _this.removeClass('js_communicate_post').addClass('js_feed-post').find('span').text(__['Remove from Communicates']);
+      }
+    }, 'json')
+      .fail(function () {
+        modal('#modal-message', { title: __['Error'], message: __['There is something that went wrong!'] });
+      });
+  });
+  /* remove from communicate post */
+  $('body').on('click', '.js_feed-post', function () {
+    var _this = $(this);
+    var post = _this.parents('.post');
+    var id = post.data('id');
+    $.post(api['posts/reaction'], { 'do': 'feed_post', 'id': id }, function (response) {
+      /* check the response */
+      if (response.callback) {
+        eval(response.callback);
+      } else {
+        _this.removeClass('js_feed-post').addClass('js_communicate-post').find('span').text(__['Add to Communicates']);
       }
     }, 'json')
       .fail(function () {

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-06 18:55:34
+/* Smarty version 4.2.0, created on 2023-07-19 13:26:14
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_sidebar.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64063726ddf9a8_75653878',
+  'unifunc' => 'content_64b7e4761fd6f6_48529747',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4c545aa30cad2c8ef9aab8005c609270c9e9844d' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_sidebar.tpl',
-      1 => 1678128926,
+      1 => 1689773126,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 28,
   ),
 ),false)) {
-function content_64063726ddf9a8_75653878 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64b7e4761fd6f6_48529747 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card main-side-nav-card">
   <div class="card-body with-nav">
     <ul class="main-side-nav">
@@ -56,7 +56,7 @@ function content_64063726ddf9a8_75653878 (Smarty_Internal_Template $_smarty_tpl)
       <li <?php if ($_smarty_tpl->tpl_vars['page']->value == "index" && ($_smarty_tpl->tpl_vars['view']->value == '' || $_smarty_tpl->tpl_vars['view']->value == "discover" || $_smarty_tpl->tpl_vars['view']->value == "popular")) {?>class="active" <?php }?>>
         <?php if (!$_smarty_tpl->tpl_vars['user']->value->_logged_in || (!$_smarty_tpl->tpl_vars['system']->value['popular_posts_enabled'] && !$_smarty_tpl->tpl_vars['system']->value['discover_posts_enabled'])) {?>
           <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
-">
+/comunidade">
             <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"newsfeed",'class'=>"mr10",'width'=>"24px",'height'=>"24px"), 0, true);
 ?>
             <?php echo __("News Feed");?>
@@ -252,6 +252,18 @@ function content_64063726ddf9a8_75653878 (Smarty_Internal_Template $_smarty_tpl)
           </a>
         </li>
       <?php }?>
+
+      <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_enabled']) {?>
+        <li <?php if ($_smarty_tpl->tpl_vars['page']->value == "communicates") {?>class="active" <?php }?>>
+          <a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
+/comunidade/communicates">
+            <i class="fa fa-bullhorn mr10" width="24px" height="24px"></i>
+            <?php echo __("communicates");?>
+
+          </a>
+        </li>
+      <?php }?>
+
 
       <?php if ($_smarty_tpl->tpl_vars['system']->value['groups_enabled']) {?>
         <li <?php if ($_smarty_tpl->tpl_vars['page']->value == "groups") {?>class="active" <?php }?>>

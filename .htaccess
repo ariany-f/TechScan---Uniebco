@@ -188,6 +188,9 @@ RewriteRule ^groups/([^/]+)/?$ group.php?username=$1 [L,QSA]
 RewriteRule ^groups/([^/]+)/([^/]+)/?$ group.php?username=$1&view=$2 [L,QSA]
 RewriteRule ^groups/([^/]+)/([^/]+)/([^/]+)/?$ group.php?username=$1&view=$2&id=$3 [L,QSA]
 
+# Communicates
+RewriteRule ^communicates/?$ communicates.php [L,QSA]
+
 # Events
 RewriteRule ^events/?$ events.php [L,QSA]
 RewriteRule ^events/going/?$ events.php?view=going [L,QSA]

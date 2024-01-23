@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-04-01 13:51:36
+/* Smarty version 4.2.0, created on 2023-08-12 05:20:22
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_album.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_642836e8961925_33701702',
+  'unifunc' => 'content_64d716968a38f1_99616989',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e869913e9a921d12dc5e4309027fd36023870bd' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_album.tpl',
-      1 => 1678120607,
+      1 => 1690861937,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_photo.tpl' => 1,
   ),
 ),false)) {
-function content_642836e8961925_33701702 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64d716968a38f1_99616989 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- album buttons -->
 <?php if ($_smarty_tpl->tpl_vars['album']->value['manage_album'] && $_smarty_tpl->tpl_vars['album']->value['can_delete']) {?>
   <div class="text-center">

@@ -97,6 +97,7 @@ try {
 
     case 'modules':
       /* prepare */
+      $_POST['announcements_enabled'] = (isset($_POST['announcements_enabled'])) ? '1' : '0';
       $_POST['pages_enabled'] = (isset($_POST['pages_enabled'])) ? '1' : '0';
       $_POST['offers_enabled'] = (isset($_POST['offers_enabled'])) ? '1' : '0';
       $_POST['groups_enabled'] = (isset($_POST['groups_enabled'])) ? '1' : '0';
@@ -111,6 +112,7 @@ try {
       $_POST['games_enabled'] = (isset($_POST['games_enabled'])) ? '1' : '0';
       /* update */
       update_system_options([
+        'announcements_enabled' => secure($_POST['announcements_enabled']),
         'pages_enabled' => secure($_POST['pages_enabled']),
         'offers_enabled' => secure($_POST['offers_enabled']),
         'jobs_enabled' => secure($_POST['jobs_enabled']),

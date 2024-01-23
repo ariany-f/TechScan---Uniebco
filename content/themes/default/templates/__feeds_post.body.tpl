@@ -93,6 +93,25 @@
               {/if}
             {/if}
             <!-- Boost -->
+            <!-- Communicates -->
+            {if !$_post['is_anonymous']}
+              {if (!$_post['in_group'] && !$_post['in_event']) || ($_post['in_group'] && $_post['is_group_admin']) || ($_post['in_event'] && $_post['is_event_admin'])}
+                {if $_post['post_type'] == 'communicates'}
+                  <div class="dropdown-item pointer js_feed-post">
+                    <div class="action no-desc">
+                      <i class="fa fa-bullhorn fa-fw"></i> <span>{__("Remove from Communicates")}</span>
+                    </div>
+                  </div>
+                {else}
+                  <div class="dropdown-item pointer js_communicate-post">
+                    <div class="action no-desc">
+                      <i class="fa fa-bullhorn fa-fw"></i> <span>{__("Add to Communicates")}</span>
+                    </div>
+                  </div>
+                {/if}
+              {/if}
+            {/if}
+            <!-- Communicates -->
             <!-- Pin -->
             {if !$_post['is_anonymous']}
               {if (!$_post['in_group'] && !$_post['in_event']) || ($_post['in_group'] && $_post['is_group_admin']) || ($_post['in_event'] && $_post['is_event_admin'])}
@@ -553,7 +572,7 @@
         </div>
       {/if}
 
-    {elseif $_post['post_type'] == "photos" || $_post['post_type'] == "album" || $_post['post_type'] == "profile_picture" || $_post['post_type'] == "profile_cover" || $_post['post_type'] == "page_picture" || $_post['post_type'] == "page_cover" || $_post['post_type'] == "group_picture" || $_post['post_type'] == "group_cover" || $_post['post_type'] == "event_cover" || ($_post['post_type'] == "product" && $_post['photos_num'] > 0)}
+    {elseif $_post['post_type'] == "photos" || $_post['post_type'] == "album" || ($_post['post_type'] == "communicates" && $_post['photos_num'] > 0) || $_post['post_type'] == "profile_picture" || $_post['post_type'] == "profile_cover" || $_post['post_type'] == "page_picture" || $_post['post_type'] == "page_cover" || $_post['post_type'] == "group_picture" || $_post['post_type'] == "group_cover" || $_post['post_type'] == "event_cover" || ($_post['post_type'] == "product" && $_post['photos_num'] > 0)}
       <div class="mt10 clearfix">
         <div class="pg_wrapper">
           {if $_post['photos_num'] == 1}
@@ -610,7 +629,6 @@
           {/if}
         </div>
       </div>
-
     {elseif $_post['post_type'] == "map"}
       <div class="post-map">
         <img src="https://maps.googleapis.com/maps/api/staticmap?center={$_post['location']}&amp;zoom=20&amp;size=600x250&amp;maptype=roadmap&amp;markers=color:red%7C{$_post['location']}&amp;key={$system['geolocation_key']}" width="100%">

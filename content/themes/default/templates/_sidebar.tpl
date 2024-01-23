@@ -24,7 +24,7 @@
 
       <li {if $page == "index" && ($view == "" || $view == "discover" || $view == "popular")}class="active" {/if}>
         {if !$user->_logged_in || (!$system['popular_posts_enabled'] && !$system['discover_posts_enabled'])}
-          <a href="{$system['system_url']}">
+          <a href="{$system['system_url']}/comunidade">
             {include file='__svg_icons.tpl' icon="newsfeed" class="mr10" width="24px" height="24px"}
             {__("News Feed")}
           </a>
@@ -174,6 +174,16 @@
           </a>
         </li>
       {/if}
+
+      {if $system['communicates_enabled']}
+        <li {if $page == "communicates"}class="active" {/if}>
+          <a href="{$system['system_url']}/comunidade/communicates">
+            <i class="fa fa-bullhorn mr10" width="24px" height="24px"></i>
+            {__("communicates")}
+          </a>
+        </li>
+      {/if}
+
 
       {if $system['groups_enabled']}
         <li {if $page == "groups"}class="active" {/if}>

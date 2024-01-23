@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-06 19:10:56
+/* Smarty version 4.2.0, created on 2023-08-01 03:53:58
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\__feeds_post_photo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64063ac075d8d1_07958411',
+  'unifunc' => 'content_64c881d60e2031_76332915',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cb270e672aa26af5db5d89bb14c1cc0ab9c43d1f' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\__feeds_post_photo.tpl',
-      1 => 1678128926,
+      1 => 1690861979,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_post.comments.tpl' => 1,
   ),
 ),false)) {
-function content_64063ac075d8d1_07958411 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c881d60e2031_76332915 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- post body -->
 <div class="post-body <?php if ($_smarty_tpl->tpl_vars['_lightbox']->value) {?>pt0<?php }?>">
 

@@ -149,7 +149,7 @@ try {
   }
 
   // get jobs
-  require('comunidade/includes/class-pager.php');
+  require('includes/class-pager.php');
   $params['selected_page'] = (!isset($_GET['page']) || (int) $_GET['page'] == 0) ? 1 : $_GET['page'];
   $total = $db->query("SELECT COUNT(*) as count " . $distance_clause . " FROM posts INNER JOIN posts_jobs ON posts.post_id = posts_jobs.post_id " . $distance_join . " WHERE posts_jobs.available = '1'" . $where_query . $distance_query . $order_query) or _error("SQL_ERROR");
   $params['total_items'] = $total->fetch_assoc()['count'];

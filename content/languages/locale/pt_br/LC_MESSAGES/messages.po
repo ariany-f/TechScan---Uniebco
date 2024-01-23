@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Sngine\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-08-29 18:27+0200\n"
-"PO-Revision-Date: 2023-05-16 16:57-0300\n"
+"PO-Revision-Date: 2023-08-15 14:46-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: started.php:40 movies.php:144 ads.php:123 developers.php:125 static.php:31 event.php:212
 #: activation.php:29 wallet.php:101 group.php:221 settings.php:508 index.php:320 post.php:53 games.php:88
@@ -10667,6 +10667,14 @@ msgstr "Próximo"
 msgid "Share your information with our community"
 msgstr "Compartilhe suas informações com a nossa comunidade"
 
+#: content\themes\default\templates\_sidebar.tpl:88
+msgid "communicates"
+msgstr "Comunicados"
+
+#: content\themes\default\templates\communicates.tpl:10
+msgid "Communicates"
+msgstr "Comunicados"
+
 #: content/themes/default/templates/started.tpl:189
 msgid "Get latest activities from our popular users"
 msgstr "Receba as últimas atividades dos nossos usuários populares"
@@ -11571,7 +11579,7 @@ msgstr "Total"
 #: content/themes/default/templates/ajax.offer.publisher.tpl:139
 #: content/themes/default/templates/ajax.offer.editor.tpl:137
 msgid "Discounted Items and/or Services"
-msgstr ""
+msgstr "Itens ou serviços descontados"
 
 #: content/themes/default/templates/ajax.offer.publisher.tpl:156
 #: content/themes/default/templates/admin.games.tpl:94

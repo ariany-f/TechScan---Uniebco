@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-05-02 13:54:32
+/* Smarty version 4.2.0, created on 2023-08-01 04:24:03
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_posts.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_645116188c3fc1_18800605',
+  'unifunc' => 'content_64c888e3eb1118_61541710',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '660c70d432a7a533aafc99f94196abcef5d214ef' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_posts.tpl',
-      1 => 1683035500,
+      1 => 1690863840,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_no_data.tpl' => 1,
   ),
 ),false)) {
-function content_645116188c3fc1_18800605 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c888e3eb1118_61541710 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- posts-filter -->
 <div class="posts-filter">
   <span><?php if ($_smarty_tpl->tpl_vars['_title']->value) {
@@ -41,6 +41,9 @@ echo __("Recent Updates");
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-item pointer" data-title='<?php echo __("All");?>
 ' data-value="all"><i class="fa fa-bars fa-fw mr10"></i><?php echo __("All");?>
+</div>
+          <div class="dropdown-item pointer" data-title='<?php echo __("Communicates");?>
+' data-value="communicates"><i class="fa fa-bullhorn fa-fw mr10"></i><?php echo __("Communicates");?>
 </div>
           <div class="dropdown-item pointer" data-title='<?php echo __("Text");?>
 ' data-value=""><i class="fa fa-comment fa-fw mr10"></i><?php echo __("Text");?>

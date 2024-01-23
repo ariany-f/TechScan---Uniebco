@@ -9,6 +9,7 @@
         </button>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-item pointer" data-title='{__("All")}' data-value="all"><i class="fa fa-bars fa-fw mr10"></i>{__("All")}</div>
+          <div class="dropdown-item pointer" data-title='{__("Communicates")}' data-value="communicates"><i class="fa fa-bullhorn fa-fw mr10"></i>{__("Communicates")}</div>
           <div class="dropdown-item pointer" data-title='{__("Text")}' data-value=""><i class="fa fa-comment fa-fw mr10"></i>{__("Text")}</div>
           <div class="dropdown-item pointer" data-title='{__("Links")}' data-value="link"><i class="fa fa-link fa-fw mr10"></i>{__("Links")}</div>
           <div class="dropdown-item pointer" data-title='{__("Media")}' data-value="media"><i class="fa fa-video fa-fw mr10"></i>{__("Media")}</div>

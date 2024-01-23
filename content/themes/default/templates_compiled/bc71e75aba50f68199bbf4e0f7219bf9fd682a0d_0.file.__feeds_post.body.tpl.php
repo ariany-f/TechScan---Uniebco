@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-18 16:04:48
+/* Smarty version 4.2.0, created on 2023-08-01 04:22:49
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\__feeds_post.body.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64b6b820512db9_42941860',
+  'unifunc' => 'content_64c88899aea538_41680690',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bc71e75aba50f68199bbf4e0f7219bf9fd682a0d' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\__feeds_post.body.tpl',
-      1 => 1689696252,
+      1 => 1690863768,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_post.body.tpl' => 2,
   ),
 ),false)) {
-function content_64b6b820512db9_42941860 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c88899aea538_41680690 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'E:\\httpdocs\\www\\comunidade\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),1=>array('file'=>'E:\\httpdocs\\www\\comunidade\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.date_format.php','function'=>'smarty_modifier_date_format',),));
 ?>
 <!-- post header -->
@@ -134,6 +134,27 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'E:\\httpdocs\\www\\comunidad
               <?php }?>
             <?php }?>
             <!-- Boost -->
+            <!-- Communicates -->
+            <?php if (!$_smarty_tpl->tpl_vars['_post']->value['is_anonymous']) {?>
+              <?php if ((!$_smarty_tpl->tpl_vars['_post']->value['in_group'] && !$_smarty_tpl->tpl_vars['_post']->value['in_event']) || ($_smarty_tpl->tpl_vars['_post']->value['in_group'] && $_smarty_tpl->tpl_vars['_post']->value['is_group_admin']) || ($_smarty_tpl->tpl_vars['_post']->value['in_event'] && $_smarty_tpl->tpl_vars['_post']->value['is_event_admin'])) {?>
+                <?php if ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == 'communicates') {?>
+                  <div class="dropdown-item pointer js_feed-post">
+                    <div class="action no-desc">
+                      <i class="fa fa-bullhorn fa-fw"></i> <span><?php echo __("Remove from Communicates");?>
+</span>
+                    </div>
+                  </div>
+                <?php } else { ?>
+                  <div class="dropdown-item pointer js_communicate-post">
+                    <div class="action no-desc">
+                      <i class="fa fa-bullhorn fa-fw"></i> <span><?php echo __("Add to Communicates");?>
+</span>
+                    </div>
+                  </div>
+                <?php }?>
+              <?php }?>
+            <?php }?>
+            <!-- Communicates -->
             <!-- Pin -->
             <?php if (!$_smarty_tpl->tpl_vars['_post']->value['is_anonymous']) {?>
               <?php if ((!$_smarty_tpl->tpl_vars['_post']->value['in_group'] && !$_smarty_tpl->tpl_vars['_post']->value['in_event']) || ($_smarty_tpl->tpl_vars['_post']->value['in_group'] && $_smarty_tpl->tpl_vars['_post']->value['is_group_admin']) || ($_smarty_tpl->tpl_vars['_post']->value['in_event'] && $_smarty_tpl->tpl_vars['_post']->value['is_event_admin'])) {?>
@@ -769,7 +790,7 @@ if ($_smarty_tpl->tpl_vars['pinned']->value || $_smarty_tpl->tpl_vars['boosted']
         </div>
       <?php }?>
 
-    <?php } elseif ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "photos" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "album" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "profile_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "profile_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "page_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "page_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "group_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "group_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "event_cover" || ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "product" && $_smarty_tpl->tpl_vars['_post']->value['photos_num'] > 0)) {?>
+    <?php } elseif ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "photos" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "album" || ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "communicates" && $_smarty_tpl->tpl_vars['_post']->value['photos_num'] > 0) || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "profile_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "profile_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "page_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "page_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "group_picture" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "group_cover" || $_smarty_tpl->tpl_vars['_post']->value['post_type'] == "event_cover" || ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "product" && $_smarty_tpl->tpl_vars['_post']->value['photos_num'] > 0)) {?>
       <div class="mt10 clearfix">
         <div class="pg_wrapper">
           <?php if ($_smarty_tpl->tpl_vars['_post']->value['photos_num'] == 1) {?>
@@ -897,7 +918,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
           <?php }?>
         </div>
       </div>
-
     <?php } elseif ($_smarty_tpl->tpl_vars['_post']->value['post_type'] == "map") {?>
       <div class="post-map">
         <img src="https://maps.googleapis.com/maps/api/staticmap?center=<?php echo $_smarty_tpl->tpl_vars['_post']->value['location'];?>

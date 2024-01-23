@@ -1,27 +1,27 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-13 14:16:26
+/* Smarty version 4.2.0, created on 2023-07-25 18:05:09
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\admin.settings.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_640f303a863132_36633922',
+  'unifunc' => 'content_64c00ed53d2397_24619481',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '37858426365efd423df30d4e7c6f3816250d6b85' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\admin.settings.tpl',
-      1 => 1678128976,
+      1 => 1689770872,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
-    'file:__svg_icons.tpl' => 120,
+    'file:__svg_icons.tpl' => 121,
   ),
 ),false)) {
-function content_640f303a863132_36633922 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c00ed53d2397_24619481 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="card">
 
   <?php if ($_smarty_tpl->tpl_vars['sub_view']->value == '') {?>
@@ -490,7 +490,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </label>
               </div>
             </div>
-
             <div class="form-group form-row">
               <label class="col-md-3 form-control-label">
                 <?php echo __("Who Can Create Pages");?>
@@ -511,6 +510,53 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </span></div></div>"><?php echo __("Verified Users");?>
 </option>
                   <option value="everyone" <?php if ($_smarty_tpl->tpl_vars['system']->value['pages_permission'] == "everyone") {?>selected<?php }?> data-content="<div class='option'><div class='icon'><i class='fa fa-globe fa-lg fa-fw'></i></div><div class='text'><b><?php echo __("Everyone");?>
+<span class='d-none d-md-inline'><br><?php echo __("Any user in the system can");?>
+</span></div></div>"><?php echo __("Everyone");?>
+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-table-row">
+              <div class="avatar">
+                <?php $_smarty_tpl->_subTemplateRender('file:__svg_icons.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('icon'=>"pages",'width'=>"40px",'height'=>"40px"), 0, true);
+?>
+              </div>
+              <div>
+                <div class="form-control-label h6"><?php echo __("Communicates");?>
+</div>
+                <div class="form-text d-none d-sm-block"><?php echo __("Turn the communicates On and Off");?>
+</div>
+              </div>
+              <div class="text-right">
+                <label class="switch" for="communicates_enabled">
+                  <input type="checkbox" name="communicates_enabled" id="communicates_enabled" <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_enabled']) {?>checked<?php }?>>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label class="col-md-3 form-control-label">
+                <?php echo __("Who Can Create Communicates");?>
+
+              </label>
+              <div class="col-md-9">
+                <select class="form-control selectpicker" name="communicates_permission">
+                  <option value="admins" <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_permission'] == "admins") {?>selected<?php }?> data-content="<div class='option'><div class='icon'><i class='fa fa-lock fa-lg fa-fw'></i></div><div class='text'><b><?php echo __("Admins");?>
+<span class='d-none d-md-inline'><br><?php echo __("Only Admins and Moderators");?>
+</span></div></div>"><?php echo __("Admins");?>
+</option>
+                  <option value="pro" <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_permission'] == "pro") {?>selected<?php }?> data-content="<div class='option'><div class='icon'><i class='fa fa-rocket fa-lg fa-fw'></i></div><div class='text'><b><?php echo __("Pro Users");?>
+<span class='d-none d-md-inline'><br><?php echo __("Only Admins, Moderators and Pro Users");?>
+</span></div></div>"><?php echo __("Pro Users");?>
+</option>
+                  <option value="verified" <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_permission'] == "verified") {?>selected<?php }?> data-content="<div class='option'><div class='icon'><i class='fa fa-check-circle fa-lg fa-fw'></i></div><div class='text'><b><?php echo __("Verified Users");?>
+<span class='d-none d-md-inline'><br><?php echo __("Only Admins, Moderators, Pro and Verified Users");?>
+</span></div></div>"><?php echo __("Verified Users");?>
+</option>
+                  <option value="everyone" <?php if ($_smarty_tpl->tpl_vars['system']->value['communicates_permission'] == "everyone") {?>selected<?php }?> data-content="<div class='option'><div class='icon'><i class='fa fa-globe fa-lg fa-fw'></i></div><div class='text'><b><?php echo __("Everyone");?>
 <span class='d-none d-md-inline'><br><?php echo __("Any user in the system can");?>
 </span></div></div>"><?php echo __("Everyone");?>
 </option>

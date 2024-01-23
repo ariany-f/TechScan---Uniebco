@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-03-28 15:59:51
+/* Smarty version 4.2.0, created on 2024-01-22 18:29:31
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\forums.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64230ef770ac05_66712317',
+  'unifunc' => 'content_65aeb40b207e89_38056662',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ceed64cbe58775cc628fd870e01401a3bf791c6f' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\forums.tpl',
-      1 => 1678128976,
+      1 => 1705948169,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_footer.tpl' => 1,
   ),
 ),false)) {
-function content_64230ef770ac05_66712317 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65aeb40b207e89_38056662 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'E:\\httpdocs\\www\\comunidade\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 $_smarty_tpl->_subTemplateRender('file:_head.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender('file:_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -267,7 +267,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <!-- forums meta -->
 
       <?php } elseif ($_smarty_tpl->tpl_vars['view']->value == "forum") {?>
-
+      
         <!-- breadcrumb -->
         <ol class="breadcrumb forum-breadcrumb">
           <li class="breadcrumb-item"><a href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
@@ -322,6 +322,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 "><?php echo __($_smarty_tpl->tpl_vars['forum']->value['forum_name']);?>
 </a>
           </div>
+          <br/>
+          <p>Crie outro fórum que tenha este fórum como seção para que as pessoas possam postar tópicos</p>
         <?php }?>
         <!-- forum-category -->
 

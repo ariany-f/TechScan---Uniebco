@@ -380,7 +380,6 @@
                 </label>
               </div>
             </div>
-
             <div class="form-group form-row">
               <label class="col-md-3 form-control-label">
                 {__("Who Can Create Pages")}
@@ -391,6 +390,37 @@
                   <option value="pro" {if $system['pages_permission'] == "pro"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-rocket fa-lg fa-fw'></i></div><div class='text'><b>{__("Pro Users")}<span class='d-none d-md-inline'><br>{__("Only Admins, Moderators and Pro Users")}</span></div></div>">{__("Pro Users")}</option>
                   <option value="verified" {if $system['pages_permission'] == "verified"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-check-circle fa-lg fa-fw'></i></div><div class='text'><b>{__("Verified Users")}<span class='d-none d-md-inline'><br>{__("Only Admins, Moderators, Pro and Verified Users")}</span></div></div>">{__("Verified Users")}</option>
                   <option value="everyone" {if $system['pages_permission'] == "everyone"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-globe fa-lg fa-fw'></i></div><div class='text'><b>{__("Everyone")}<span class='d-none d-md-inline'><br>{__("Any user in the system can")}</span></div></div>">{__("Everyone")}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="form-table-row">
+              <div class="avatar">
+                {include file='__svg_icons.tpl' icon="pages" width="40px" height="40px"}
+              </div>
+              <div>
+                <div class="form-control-label h6">{__("Communicates")}</div>
+                <div class="form-text d-none d-sm-block">{__("Turn the communicates On and Off")}</div>
+              </div>
+              <div class="text-right">
+                <label class="switch" for="communicates_enabled">
+                  <input type="checkbox" name="communicates_enabled" id="communicates_enabled" {if $system['communicates_enabled']}checked{/if}>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group form-row">
+              <label class="col-md-3 form-control-label">
+                {__("Who Can Create Communicates")}
+              </label>
+              <div class="col-md-9">
+                <select class="form-control selectpicker" name="communicates_permission">
+                  <option value="admins" {if $system['communicates_permission'] == "admins"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-lock fa-lg fa-fw'></i></div><div class='text'><b>{__("Admins")}<span class='d-none d-md-inline'><br>{__("Only Admins and Moderators")}</span></div></div>">{__("Admins")}</option>
+                  <option value="pro" {if $system['communicates_permission'] == "pro"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-rocket fa-lg fa-fw'></i></div><div class='text'><b>{__("Pro Users")}<span class='d-none d-md-inline'><br>{__("Only Admins, Moderators and Pro Users")}</span></div></div>">{__("Pro Users")}</option>
+                  <option value="verified" {if $system['communicates_permission'] == "verified"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-check-circle fa-lg fa-fw'></i></div><div class='text'><b>{__("Verified Users")}<span class='d-none d-md-inline'><br>{__("Only Admins, Moderators, Pro and Verified Users")}</span></div></div>">{__("Verified Users")}</option>
+                  <option value="everyone" {if $system['communicates_permission'] == "everyone"}selected{/if} data-content="<div class='option'><div class='icon'><i class='fa fa-globe fa-lg fa-fw'></i></div><div class='text'><b>{__("Everyone")}<span class='d-none d-md-inline'><br>{__("Any user in the system can")}</span></div></div>">{__("Everyone")}</option>
                 </select>
               </div>
             </div>

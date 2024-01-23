@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-18 15:57:37
+/* Smarty version 4.2.0, created on 2023-08-01 03:53:08
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\__feeds_post.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64b6b67170af75_12559206',
+  'unifunc' => 'content_64c881a4b5d679_02463426',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '384a840260c041b92c807d41c795c54d211c45db' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\__feeds_post.tpl',
-      1 => 1689695756,
+      1 => 1690861889,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__feeds_post.comments.tpl' => 1,
   ),
 ),false)) {
-function content_64b6b67170af75_12559206 (Smarty_Internal_Template $_smarty_tpl) {
+function content_64c881a4b5d679_02463426 (Smarty_Internal_Template $_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['standalone']->value) {?><li><?php }?>
   <!-- post -->
   <div class="post 

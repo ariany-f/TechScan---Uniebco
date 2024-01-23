@@ -96,6 +96,16 @@ try {
       $user->unpin_post($_POST['id']);
       break;
 
+    case 'communicates_post':
+      // pin post
+      $user->communicates_post($_POST['id']);
+      break;
+
+    case 'feed_post':
+      // unpin post
+      $user->feed_post($_POST['id']);
+      break;
+
     case 'react_post':
       // react post
       $user->react_post($_POST['id'], $_POST['reaction']);
