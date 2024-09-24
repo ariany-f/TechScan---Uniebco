@@ -16235,6 +16235,9 @@ class User
     if ($this->check_email($args['email'])) {
       throw new Exception(__("Sorry, it looks like") . " <strong>" . $args['email'] . "</strong> " . __("belongs to an existing account"));
     }
+    if (!$this->check_email_provider($args['email'])) {
+      throw new Exception(__("Sorry, it looks like") . " <strong>" . $args['email'] . "</strong> " . __(" are not allowed in the system"));
+    }
     if ($system['activation_enabled'] && $system['activation_type'] == "sms") {
       if (is_empty($args['phone'])) {
         throw new Exception(__("Please enter a valid phone number"));
@@ -17112,6 +17115,27 @@ class User
     }
   }
 
+  
+  /**
+   * check_email_provider
+   * 
+   * @param string $email
+   * @param boolean $return_info
+   * @return boolean|array
+   * 
+   */
+  public function check_email_provider($email)
+  {	
+    /* check if permissed by the system */
+    $permission_domains = ['uniebco.com.br', 'ebco.com.br', 'techscan.com.br', 'seabox.com.br'];
+    $email_domain = explode('@', $email)[1];
+    if(!in_array($email_domain, $permission_domains))
+    {
+        return false;
+    }
+    return true;
+  }
+
   /**
    * check_email
    * 
@@ -17123,18 +17147,10 @@ class User
   public function check_email($email, $return_info = false)
   {
     global $db;
-	
-    /* check if permissed by the system */
-    $permission_domains = ['hotmail.com', 'uniebco.com.br', 'ebco.com.br', 'techscan.com.br'];
-    $email_domain = explode('@', $email)[1];
-    if(!in_array($email_domain, $permission_domains))
-    {
-        //throw new Exception(__("Sorry but this provider") . " <strong>" . $email_domain . "</strong> " . __("is not allowed in our system"));
-    }
     /* check if banned by the system */
     $check_banned = $db->query(sprintf("SELECT COUNT(*) as count FROM blacklist WHERE node_type = 'email' AND node_value = %s", secure(explode('@', $email)[1]))) or _error("SQL_ERROR_THROWEN");
     if ($check_banned->fetch_assoc()['count'] > 0) {
-      throw new Exception(__("Sorry but this provider") . " <strong>" . $email_domain . "</strong> " . __("is not allowed in our system"));
+      throw new Exception(__("Sorry but this email") . " <strong>" . $email . "</strong> " . __("is not allowed in our system"));
     }
     $query = $db->query(sprintf("SELECT * FROM users WHERE user_email = %s", secure($email))) or _error("SQL_ERROR_THROWEN");
     if ($query->num_rows > 0) {
