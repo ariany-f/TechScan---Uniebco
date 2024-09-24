@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-12-18 18:04:25
+/* Smarty version 4.2.0, created on 2024-09-06 02:27:56
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\__feeds_video.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_658089a9eacec5_44522303',
+  'unifunc' => 'content_66da68ac8bc6e6_32993626',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_658089a9eacec5_44522303 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66da68ac8bc6e6_32993626 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="col-6 col-md-4 col-lg-3">
   <a class="pg_video" href="<?php echo $_smarty_tpl->tpl_vars['system']->value['system_url'];?>
 /comunidade/posts/<?php echo $_smarty_tpl->tpl_vars['video']->value['post_id'];?>

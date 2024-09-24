@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-10-04 15:07:40
+/* Smarty version 4.2.0, created on 2024-09-05 15:41:00
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\__feeds_event.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_651d7fbcdb0ba2_00468016',
+  'unifunc' => 'content_66d9d10c6b9fe7_83055545',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_651d7fbcdb0ba2_00468016 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66d9d10c6b9fe7_83055545 (Smarty_Internal_Template $_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['_tpl']->value == "box") {?>
   <li class="col-md-6 col-lg-3">
     <div class="ui-box">

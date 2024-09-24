@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-08 09:37:58
+/* Smarty version 4.2.0, created on 2024-09-15 18:49:26
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\ajax.report.publisher.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64a92e76dfc499_86504586',
+  'unifunc' => 'content_66e72c36ddf970_84232285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__categories.recursive_options.tpl' => 1,
   ),
 ),false)) {
-function content_64a92e76dfc499_86504586 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66e72c36ddf970_84232285 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="modal-header">
   <h6 class="modal-title">
     <i class="fa fa-flag mr5"></i><?php echo __("Report");?>

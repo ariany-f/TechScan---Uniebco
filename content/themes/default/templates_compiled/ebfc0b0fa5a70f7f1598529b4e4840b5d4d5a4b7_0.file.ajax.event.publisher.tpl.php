@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-08-21 14:08:51
+/* Smarty version 4.2.0, created on 2024-09-12 18:27:00
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\ajax.event.publisher.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64e36ff3df8831_78867688',
+  'unifunc' => 'content_66e3327419f200_96898573',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__custom_fields.tpl' => 1,
   ),
 ),false)) {
-function content_64e36ff3df8831_78867688 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66e3327419f200_96898573 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="modal-header">
   <h6 class="modal-title">
     <i class="fa fa-calendar-plus mr10" style="color: #f79f58;"></i><?php echo __("Create New Event");?>

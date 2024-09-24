@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-17 20:15:47
+/* Smarty version 4.2.0, created on 2024-03-27 18:38:41
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_js_templates.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64b5a17384fdb3_07841369',
+  'unifunc' => 'content_660467b18e3ef1_94668441',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b4e4f2c322ca22ff5b57a8e46cacde18270b944f' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_js_templates.tpl',
-      1 => 1689624777,
+      1 => 1711564050,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:__svg_icons.tpl' => 16,
   ),
 ),false)) {
-function content_64b5a17384fdb3_07841369 (Smarty_Internal_Template $_smarty_tpl) {
+function content_660467b18e3ef1_94668441 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!-- Modals --><div id="modal" class="modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-body"><div class="loader pt10 pb10"></div></div></div></div></div><?php echo '<script'; ?>
  id="modal-login" type="text/template"><div class="modal-header"><h6 class="modal-title"><?php echo __("Not Logged In");?>
 </h6></div><div class="modal-body"><p><?php echo __("Please log in to continue");?>
@@ -652,6 +652,11 @@ $_smarty_tpl->tpl_vars['country']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?></select><input type="text" class="js_tagify-ajax-late x-hidden" data-handle="{{nodes}}" name="{{nodes_field_name}}"><span class="form-text"><?php echo __("Search for nodes you want new accounts to auto connect");?>
  <?php echo __("to this country");?>
 </span></div></div></div><?php echo '</script'; ?>
-><?php }?><!-- Auto Connect --><?php }
-}
+><?php }?><!-- Auto Connect --><?php }?><!-- VLibras --><div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div><?php echo '<script'; ?>
+ src="https://vlibras.gov.br/app/vlibras-plugin.js"><?php echo '</script'; ?>
+><?php echo '<script'; ?>
+>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  <?php echo '</script'; ?>
+><?php }
 }
