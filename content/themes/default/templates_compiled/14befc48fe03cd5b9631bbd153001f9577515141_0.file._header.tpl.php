@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.0, created on 2023-07-18 16:08:02
+/* Smarty version 4.2.0, created on 2024-11-26 15:38:44
   from 'E:\httpdocs\www\comunidade\content\themes\default\templates\_header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.0',
-  'unifunc' => 'content_64b6b8e2591d23_77775579',
+  'unifunc' => 'content_6745eb84a7d179_19600423',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '14befc48fe03cd5b9631bbd153001f9577515141' => 
     array (
       0 => 'E:\\httpdocs\\www\\comunidade\\content\\themes\\default\\templates\\_header.tpl',
-      1 => 1689696417,
+      1 => 1732635316,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:_ads.tpl' => 1,
   ),
 ),false)) {
-function content_64b6b8e2591d23_77775579 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6745eb84a7d179_19600423 (Smarty_Internal_Template $_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['user']->value->_logged_in) {?>
 
     <body data-view="<?php echo $_smarty_tpl->tpl_vars['page']->value;?>
