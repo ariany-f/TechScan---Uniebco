@@ -79,7 +79,7 @@ switch ($_GET['do']) {
 
     // sign out
     $user->sign_out();
-   redirect('/comunidade/');
+   redirect('/');
     break;
 
   case 'reset':
