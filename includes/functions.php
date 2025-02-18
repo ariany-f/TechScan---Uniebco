@@ -1869,8 +1869,8 @@ function ffmpeg_test()
     throw new Exception(__("FFMPEG path must be defined before testing"));
   }
   /* prepare */
-  $input_video = ABSPATH . "comunidade/includes/assets/videos/ffmpeg_test.mp4";
-  $output_video = ABSPATH . "comunidade/includes/assets/videos/ffmpeg_test_240.mp4";
+  $input_video = ABSPATH . 'includes\assets\videos\ffmpeg_test.mp4';
+  $output_video = ABSPATH . 'includes\assets\videos\ffmpeg_test_240.mp4';
   @unlink($output_video);
   $shell_response = shell_exec($system['ffmpeg_path'] . " -y -i $input_video -vcodec libx264 -preset " . $system['ffmpeg_speed'] . " -filter:v scale=426:-2 -crf 26 $output_video 2>&1");
   if (!file_exists($output_video)) {
@@ -1956,6 +1956,18 @@ function ffmpeg_convert($post_id, $post_author_id, $video_name, $thumbnail = '')
   $original_hash = extarct_hash_token($video_name);
   /* set video prefix */
   $video_prefix = $system['uploads_prefix'] . '_' . $original_hash;
+    
+  /* convert video to webm */
+  $video_webm_name = $videos_directory . $video_prefix . '.webm';
+  $video_webm_local_path = ABSPATH . $system['uploads_directory'] . '/' . $video_webm_name;
+  if (!file_exists($video_webm_local_path) && $resolution == 0) {
+    shell_exec($system['ffmpeg_path'] .  " -y -i $original_video_local_path -c:v libvpx-vp9 -quality realtime -cpu-used 8 -row-mt 1 -tile-columns 4 -crf 30 -b:v 0 -b:a 128k -c:a libopus $video_webm_local_path");
+    /* save the new video to cloud */
+    save_file_to_cloud($video_webm_local_path, $video_webm_name);
+    /* update video */
+    $db->query(sprintf("UPDATE posts_videos SET source = %s WHERE post_id = %s", secure($video_webm_name), secure($post_id, 'int'))) or _error('SQL_ERROR_THROWEN');
+  }
+
   /* convert video to 240p */
   $video_240p_name = $videos_directory . $video_prefix . '_240p.mp4';
   $video_240_local_path = ABSPATH . $system['uploads_directory'] . '/' . $video_240p_name;

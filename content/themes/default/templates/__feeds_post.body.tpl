@@ -852,7 +852,7 @@
 
     {elseif $_post['post_type'] == "video" && $_post['video']}
       <div class="overflow-hidden">
-        <video class="js_videojs video-js vjs-16-9 vjs-default-skin" id="video-{$_post['video']['video_id']}{if $pinned || $boosted}-{$_post['post_id']}{/if}" {if $user->_logged_in}onplay="update_media_views('video', {$_post['video']['video_id']})" {/if} {if $_post['video']['thumbnail']}poster="{$system['system_uploads']}/{$_post['video']['thumbnail']}" {/if} controls preload="auto" muted="muted" style="width:100%;height:100%;" width="100%" height="100%">
+        <video class="js_videojs video-js vjs-16-9 vjs-default-skin" id="video-{$_post['video']['video_id']}{if $pinned || $boosted}-{$_post['post_id']}{/if}" {if $user->_logged_in}onplay="update_media_views('video', {$_post['video']['video_id']})" {/if} {if $_post['video']['thumbnail']}poster="{$system['system_uploads']}/{$_post['video']['thumbnail']}" {/if} controls playsinline preload="auto" muted="muted" style="width:100%;height:100%;" width="100%" height="100%">
           {if empty($_post['video']['source_240p']) && empty($_post['video']['source_360p']) && empty($_post['video']['source_480p']) && empty($_post['video']['source_720p']) && empty($_post['video']['source_1080p']) && empty($_post['video']['source_1440p']) && empty($_post['video']['source_2160p'])}
             <source src="{$system['system_uploads']}/{$_post['video']['source']}" type="video/mp4">
           {/if}
