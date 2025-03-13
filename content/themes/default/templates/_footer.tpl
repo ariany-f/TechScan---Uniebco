@@ -10,7 +10,7 @@
 <!-- main wrapper -->
 
 <!-- Dependencies CSS [Twemoji-Awesome] -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/SebastianAigner/twemoji-amazing@1.0.0/twemoji-amazing.css">
+<link rel="stylesheet" href="/comunidade/node_modules/twemoji-awesome/dist/twemoji-awesome.min.css">
 <!-- Dependencies CSS [Twemoji-Awesome] -->
 
 <!-- JS Files -->

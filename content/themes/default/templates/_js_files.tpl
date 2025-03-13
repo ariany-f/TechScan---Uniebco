@@ -389,6 +389,11 @@
     <link rel="stylesheet" type='text/css' href="{$system['system_url']}/comunidade/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
     <!-- Bootstrap selectpicker -->
 
+    <!--Twemoji Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zamblektech/twemoji-amazing@latest/twemoji-amazing.css">
+    <link rel="stylesheet" type"text/css" href="{$system['system_uri']}/comunidade/node_modules/twemoji-awesome/dist/twemoji-awesome.min.css">
+    <!--Twemoji Awesome -->
+
     <!-- Bootstrap datetimepicker -->
     <script src="{$system['system_url']}/comunidade/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" type='text/css' href="{$system['system_url']}/comunidade/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
@@ -476,12 +481,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js" integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <script src="{$system['system_url']}/comunidade/node_modules/@yaireo/tagify/dist/jQuery.tagify.min.js"></script>
-    <link rel="stylesheet" type='text/css' href="{$system['system_url']}/comunidade//comunidade/node_modules/@yaireo/tagify/dist/tagify.css">
+    <script src="{$system['system_url']}/comunidade/node_modules/@yaireo/tagify/dist/tagify.js"></script>
+    <link rel="stylesheet" type='text/css' href="{$system['system_url']}/comunidade/node_modules/@yaireo/tagify/dist/tagify.css">
     <!-- Dependencies Plugins [JS] -->
 
     <!-- Sngine [JS] -->
-    <script src="{$system['system_url']}/comunidade/includes/assets/js/core/admin.js"></script>
+    <script src="{$system['system_url']}/comunidade/includes/assets/js/core/admin.js?v=1.0"></script>
     <!-- Sngine [JS] -->
 
     <!-- Admin Charts -->
