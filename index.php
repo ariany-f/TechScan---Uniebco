@@ -7,14 +7,29 @@
  * @author Zamblek
  */
 
+
+
 // fetch bootloader
 require('bootloader.php');
 
 try {
-
+ 
   // check user logged in
   if (!$user->_logged_in) {
+    /**
+     * Force HTTPS redirect (compatível com proxies e load balancers)
+     */
+    $is_https = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') 
+    || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+    || (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on')
+    || (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
 
+    if (!$is_https) {
+    $redirect_url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    header("HTTP/1.1 301 Moved Permanently");
+    header("Location: $redirect_url");
+    exit();
+    }
     // page header
     page_header(__("Welcome to") . ' ' . __($system['system_title']));
 
